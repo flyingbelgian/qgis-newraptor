@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NewRaptorDialogBase</class>
+ <widget class="QDialog" name="NewRaptorDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>261</width>
+    <height>211</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Add New Raptor</string>
+  </property>
+  <widget class="QDialogButtonBox" name="button_box">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>170</y>
+     <width>221</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>241</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="lytForm">
+    <item row="0" column="0">
+     <widget class="QLabel" name="latitudeLabel">
+      <property name="text">
+       <string>Latitude:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QDoubleSpinBox" name="spb_lat">
+      <property name="decimals">
+       <number>5</number>
+      </property>
+      <property name="minimum">
+       <double>-90.000000000000000</double>
+      </property>
+      <property name="maximum">
+       <double>90.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="longitudeLabel">
+      <property name="text">
+       <string>Longitude:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QgsDoubleSpinBox" name="spb_lon">
+      <property name="decimals">
+       <number>5</number>
+      </property>
+      <property name="minimum">
+       <double>-180.000000000000000</double>
+      </property>
+      <property name="maximum">
+       <double>180.000000000000000</double>
+      </property>
+      <property name="showClearButton">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="speciesLabel">
+      <property name="text">
+       <string>Species</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QComboBox" name="cmb_species">
+      <item>
+       <property name="text">
+        <string>Undetermined</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Red-tail Hawk</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Swainsons Hawk</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Northern Harrier</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="bufferDistanceLabel">
+      <property name="text">
+       <string>Buffer Distance:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QDoubleSpinBox" name="spb_buffer">
+      <property name="decimals">
+       <number>5</number>
+      </property>
+      <property name="maximum">
+       <double>0.100000000000000</double>
+      </property>
+      <property name="singleStep">
+       <double>0.001000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="statusLabel">
+      <property name="text">
+       <string>Status</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QComboBox" name="cmb_status">
+      <item>
+       <property name="text">
+        <string>Undetermined</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Active Nest</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Inactive Nest</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fledged Nest</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="lastSurveyLabel">
+      <property name="text">
+       <string>Last Survey</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QDateEdit" name="lastSurveyDateEdit">
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>qgsdoublespinbox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>button_box</sender>
+   <signal>accepted()</signal>
+   <receiver>NewRaptorDialogBase</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>button_box</sender>
+   <signal>rejected()</signal>
+   <receiver>NewRaptorDialogBase</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
